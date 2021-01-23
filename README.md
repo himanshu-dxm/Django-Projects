@@ -8,4 +8,4 @@ Run command "pip install -r requirements.txt"
 
 Run command "python manage.py runserver"
 
-Open The Link "localhost:8000/projectName"
+Open The Link "localhost:8000/appName"
