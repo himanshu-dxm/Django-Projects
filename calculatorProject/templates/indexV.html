@@ -34,31 +34,19 @@
             </div>
         </nav>
         <div class='container-fluid' style="margin-bottom:10rem">
-            <div class="row">
-                <div class="col-md-6" style="margin:0 auto">
-                    {% if error %}
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>There is an Error</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    {% endif %}
-                    {% if result %}
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>{{ans}}</strong>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
+            {{globalcnt}}
             <div class="row">
                 <div class="col-md-6" style="margin:1rem auto 0 auto;">
                     <img class="img-fluid" src="{% static "pika.jpg" %}">
                     <div class="card">
                         <div class="card-body">
-                            <form method = "GET" action="{% url 'submitquery' %}" >
-                                <div class="form-group">
-                                    <input type="search" class="form-control" name="query" id="query">
-                                </div>
+                            <form method = "GET" action="{% url 'getquery' %}" >
+                                <input list="languages" class="form-control" name="languages" style="margin-bottom:1rem;">
+                                <datalist id="languages">
+                                    {%for eachlanguage in arr%}
+                                        <option value="{{eachlanguage}}">
+                                    {% endfor %}
+                                </datalist>
                                 <div class="row">
                                     <div class="col-6">
                                         <input type="submit" class="btn btn-success" style="margin-top:1rem;display:block;">
