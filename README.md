@@ -8,4 +8,6 @@ Run command "pip install -r requirements.txt"
 
 Run command "python manage.py runserver"
 
-Open The Link "localhost:8000/appName"
+Open The Link "localhost:8000/calculatorapp" for opening the calculatorApp
+
+Open The Link "localhost:8000/voting" for opening the votingApp
