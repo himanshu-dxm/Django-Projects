@@ -11,3 +11,5 @@ Run command "python manage.py runserver"
 Open The Link "localhost:8000/calculatorapp" for opening the calculatorApp
 
 Open The Link "localhost:8000/votingapp" for opening the votingApp
+
+Open The Link "localhost:8000/todoapp" for opening the todoApp
