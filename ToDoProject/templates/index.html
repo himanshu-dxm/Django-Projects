@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    {%block title%}<title>To Do App</title>{%endblock%}
+  </head>
+  <body style="background-color: lightgrey;"> 
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{%url 'add'%}">TO DO APP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{%url 'add'%}">Add</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'list' %}">View All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'sortdata' %}">Sort Tasks</a>
+                </li>
+            </ul>
+            <form class="d-flex" action="{% url 'search' %}">
+                <input class="form-control me-2" type="query" placeholder="Search By Title" aria-label="Search" name="query" id="query">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    </nav>
+    {%block content%}
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-md-6" style="margin:1rem auto;display:block">
+                <form action="{% url 'submit' %}">
+                    <div class="form-group">
+                        <label for="title">To_Do Title</label>
+                        <input type="text" class="form-control" name="title" id="title" style="height:30px">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">To_Do Description</label>
+                        <textarea class="form-control" name="description" id="descritpion" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority" class="form-label">Priority (Enter 1 for high priority , 100 for low priority)</label>
+                        <input type="number" class="form-control" name="priority" id="priority" style="height:30px">
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="margin: 1rem auto;display: block;text-align: center;">
+                            <input class="btn btn-primary" type="submit" value="Add">
+                        </div>
+                    </div>
+                </form>
+                <!--<form action="{% url 'search' %}">
+                    <div class="form-group">
+                        <label for="query">Search By Title</label>
+                        <input type="query" class="form-control" name="query" id="query">
+                        <input class="btn btn-primary" type="submit" value="Search" style="display:block;margin:1rem auto">
+                    </div>
+                </form>
+                -->
+            </div>
+        </div>        
+    </div>
+    {%endblock%}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

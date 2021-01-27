@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{%block title%} <title>Edit Todo</title> {% endblock %}
+
+{%block content%}
+
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-md-6" style="margin:1rem auto;display:block">
+                <form action="/update/{{id}}">
+                    <div class="form-group">
+                        <label for="title">To_Do Title</label>
+                        <input type="text" class="form-control" name="title" id="title" style="height:30px" value={{title}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">To_Do Description</label>
+                        <textarea class="form-control" name="description" id="descritpion" rows="3">{{descritpion}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority" class="form-label">Priority</label>
+                        <input type="number" class="form-control" name="priority" id="priority" style="height:30px" value={{priority}}>
+                    </div>
+                    <div class="row">
+                        <div class="col-6" style="margin: 1rem auto;display: block;text-align: center;">
+                            <input class="btn btn-primary" type="submit" value="Update">
+                        </div>
+                    </div>
+                </form>
+                <!--<form action="{% url 'search' %}">
+                    <div class="form-group">
+                        <label for="query">Search By Title</label>
+                        <input type="query" class="form-control" name="query" id="query">
+                        <input class="btn btn-primary" type="submit" value="Search" style="display:block;margin:1rem auto">
+                    </div>
+                </form>
+                -->
+            </div>
+        </div>        
+    </div>
+
+{% endblock %}
