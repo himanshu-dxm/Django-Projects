@@ -34,9 +34,21 @@ def list(request):
 def add(request):
     return render(request,'index.html')
 
-def sortdata(request):
+def sortbypriority(request):
     mydict = {
         "alltodos" : Todo.objects.all().order_by('priority')
+    }
+    return render(request,'list.html',context=mydict)
+
+def sortbydate(request):
+    mydict = {
+        "alltodos" : Todo.objects.all().order_by('created_at')
+    }
+    return render(request,'list.html',context=mydict)
+
+def sortbytitle(request):
+    mydict = {
+        "alltodos" : Todo.objects.all().order_by('title')
     }
     return render(request,'list.html',context=mydict)
 
