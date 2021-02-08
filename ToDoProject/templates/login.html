@@ -1,0 +1,26 @@
+{% extends 'indexM.html' %}
+{%block title%} <title>Login</title> {% endblock %}
+
+{%block content %}
+{%if errorvalue%}:
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  <strong>Incorrect Credentials!!</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5 shadow mx-auto p-0" style="margin:2rem auto">
+            <div class="alert alert-success">
+                <h2>Login</h2>
+            </div>
+            <form method = "POST" action = "{% url 'login' %}" style="background-color:azure">
+                {% csrf_token %}
+                {{form.as_p}}
+                <hr>
+                <input type="submit" class="btn btn-info" style="margin:1rem auto;display:block;" value="Login">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
